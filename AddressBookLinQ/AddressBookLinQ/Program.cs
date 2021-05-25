@@ -59,11 +59,18 @@ namespace AddressBookLinQ
             column.ColumnName = "eMail";
             addressBookTable.Columns.Add(column);
 
-            // Make the first name and mobile no column the primary key column.
             DataColumn[] PrimaryKeyColumns = new DataColumn[2];
             PrimaryKeyColumns[0] = addressBookTable.Columns["firstName"];
             PrimaryKeyColumns[1] = addressBookTable.Columns["phoneNumber"];
             addressBookTable.PrimaryKey = PrimaryKeyColumns;
+
+            //Inserting data into columns into datatable UC3
+            addressBookTable.Rows.Add("Nilima", "Wadal", "AtPost", "Akola", "Maharashtra", 444101, 8570934858, "nilima@gmail.com");
+            addressBookTable.Rows.Add("Ritesh", "Patkar", "buldhana", "Amravti", "Karnataka", 125433, 9898989898, "Ritesh@gmail.com");
+            addressBookTable.Rows.Add("Sne", "Gunde", "Andheri", "Mumbai", "Maharashtra", 125445, 9384782647, "Snehal@gmail.com");
+            addressBookTable.Rows.Add("Aishwarya", "Yede", "hgt", "Hinghat", "Haryana", 222000, 9595959895, "aishwaray@gamil.com");
+            addressBookTable.Rows.Add("Pravina", "Deshmukh", "amt", "Delhi", "Delhi", 435121, 99997898, "pravina@gmail.com");
+            addressBookTable.Rows.Add("Vishal", "Bunde", "Andheri", "Mumbai", "Maharashtra", 8276737, 2345678900000, "vishal@gmail.com");
         }
     }
 }
