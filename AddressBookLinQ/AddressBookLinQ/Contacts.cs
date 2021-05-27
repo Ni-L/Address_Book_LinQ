@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AddressBookLinQ
 {
+    /// <summary>
+    /// Contacts class for getting and settings values
+    /// </summary>
     class Contacts
     {
         public string FirstName { get; set; }

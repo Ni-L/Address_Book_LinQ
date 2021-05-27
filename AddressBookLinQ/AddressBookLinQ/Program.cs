@@ -16,9 +16,11 @@ namespace AddressBookLinQ
             Console.WriteLine("***************Welcome To AddressBook Using Linq*************");
             AddressBookDataTable addressBookDataTable = new AddressBookDataTable();
             DataTable table = addressBookDataTable.CreateAddressBookTable();
-            addressBookDataTable.editContact(table);
-
+            addressBookDataTable.EditContact(table);
+            Console.WriteLine("Enter the first name = ");
             Console.Read();
+
+           
         }
     }
 }
