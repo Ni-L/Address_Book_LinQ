@@ -16,14 +16,14 @@ namespace AddressBookLinQ
             Console.WriteLine("***************Welcome To AddressBook Using Linq*************");
             AddressBookDataTable addressBookDataTable = new AddressBookDataTable();
             DataTable table = addressBookDataTable.CreateAddressBookTable();
-            Contacts contact = new Contacts();
-            Console.WriteLine("Enter the City  ");
-            contact.City = Console.ReadLine();
-            addressBookDataTable.RetrieveContactByCity(contact);
-            Console.WriteLine("Enter the State");
-            contact.State = Console.ReadLine();
-            addressBookDataTable.RetrieveContactByCity(contact);
-
+           Contacts contact = new Contacts();
+            //Console.WriteLine("Enter the City  ");
+            //contact.City = Console.ReadLine();
+            //addressBookDataTable.RetrieveContactByCity(contact);
+            //Console.WriteLine("Enter the State");
+            //contact.State = Console.ReadLine();
+            addressBookDataTable.GetCountByCityAndState(table);
+           
             Console.Read();
         }
     }
