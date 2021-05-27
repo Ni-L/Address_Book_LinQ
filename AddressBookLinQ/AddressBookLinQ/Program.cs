@@ -22,8 +22,9 @@ namespace AddressBookLinQ
             //addressBookDataTable.RetrieveContactByCity(contact);
             //Console.WriteLine("Enter the State");
             //contact.State = Console.ReadLine();
-            addressBookDataTable.GetCountByCityAndState(table);
-           
+            //addressBookDataTable.GetCountByCityAndState(table);
+            addressBookDataTable.GetSortedDataBasedOnPersonName(table);
+
             Console.Read();
         }
     }

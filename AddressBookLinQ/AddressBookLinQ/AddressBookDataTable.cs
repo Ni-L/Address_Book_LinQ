@@ -142,9 +142,25 @@ namespace AddressBookLinQ
                 Console.WriteLine("state:- " + data.city.state);
                 Console.WriteLine("lastName:- " + data.count);
                 Console.WriteLine("*******************");
-
             }
 
+        }
+        //Adding GetSortedDataBasedOnPersonName
+        public void GetSortedDataBasedOnPersonName(DataTable datatable)
+        {
+            var recordData = datatable.AsEnumerable().Where(r => r.Field<string>("city") == "Mumbai").OrderBy(r => r.Field<string>("firstName")).ThenBy(r => r.Field<string>("lastName"));
+            foreach (var record in recordData)
+            {
+                Console.WriteLine("\nFirstName:-" + record.Field<string>("FirstName"));
+                Console.WriteLine("LastName:-" + record.Field<string>("LastName"));
+                Console.WriteLine("Address:-" + record.Field<string>("Address"));
+                Console.WriteLine("City:-" + record.Field<string>("City"));
+                Console.WriteLine("State:-" + record.Field<string>("State"));
+                Console.WriteLine("ZipCode:-" + record.Field<int>("ZipCode"));
+                Console.WriteLine("PhoneNumber:-" + record.Field<long>("PhoneNumber"));
+                Console.WriteLine("Email:-" + record.Field<string>("Email"));
+                DisplayAddressBook();
+            }
         }
     }
 
