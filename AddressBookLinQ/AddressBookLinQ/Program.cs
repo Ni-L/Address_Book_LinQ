@@ -15,15 +15,22 @@ namespace AddressBookLinQ
         {
             Console.WriteLine("***************Welcome To AddressBook Using Linq*************");
             AddressBookDataTable addressBookDataTable = new AddressBookDataTable();
+
             DataTable table = addressBookDataTable.CreateAddressBookTable();
-           Contacts contact = new Contacts();
+            var book = table.AsEnumerable().Select(r => r.Field<string>("firstName"));
+            foreach(string element in book)
+            {
+                Console.WriteLine(element);
+            }
+
+            //  Contacts contact = new Contacts();
             //Console.WriteLine("Enter the City  ");
             //contact.City = Console.ReadLine();
             //addressBookDataTable.RetrieveContactByCity(contact);
             //Console.WriteLine("Enter the State");
             //contact.State = Console.ReadLine();
             //addressBookDataTable.GetCountByCityAndState(table);
-            addressBookDataTable.GetSortedDataBasedOnPersonName(table);
+            // addressBookDataTable.GetSortedDataBasedOnPersonName(table);
 
             Console.Read();
         }
