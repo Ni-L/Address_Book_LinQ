@@ -162,6 +162,17 @@ namespace AddressBookLinQ
                 DisplayAddressBook();
             }
         }
+        //Added GetCounttype method
+        public void GetCountByType(DataTable dataTable)
+        {
+            //
+            var recordData = dataTable.AsEnumerable().GroupBy(r => r.Field<string>("type")).Select(r => new { type = r.Key, count = r.Count() });
+            foreach (var data in recordData)
+            {
+                Console.WriteLine("Type-" + data.type);
+                Console.WriteLine("Count for type- " + data.count);
+            }
+        }
     }
 
 }
