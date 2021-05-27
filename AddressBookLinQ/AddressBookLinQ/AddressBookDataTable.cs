@@ -25,13 +25,13 @@ namespace AddressBookLinQ
             dataTable.Columns.Add("PhoneNumber", typeof(long));
             dataTable.Columns.Add("Email", typeof(string));
             //Adding data to the rows
-            dataTable.Rows.Add("Nilima", "wadal", "akola", "navimumbai", "maharashtra", 400705, 9987932434, "nilima.com");
-            dataTable.Rows.Add("Naina", "wadal", "mumbai", "navimumbai", "maharashtra", 400701, 9987932434, "naina@gmail.com");
-            dataTable.Rows.Add("ritesh", "deshmukh", "thane", "navimumbai", "maharashtra", 400703, 9987932434, "ritesh@gmail.com");
-            dataTable.Rows.Add("Shivam", "borole", "dombivli", "Mumbai", "maharashtra", 400710, 9987932434, "shivam@gmail.com");
-            dataTable.Rows.Add("rahul", "sable", "hgt", "Mumbai", "maharashtra", 400703, 9987932434, "rahul@gmail.com");
-            dataTable.Rows.Add("Aniket", "sable", " mum", "navimumbai", "maharashtra", 400701, 9987932434, "aniket@gmail.com");
-            dataTable.Rows.Add("Snehal", "parde", "vashi", "navimumbai", "maharashtra", 400701, 9987932434, "snehal@gmail.com");
+            dataTable.Rows.Add("Nilima", "wadal", "atpost", "Akola", "maharashtra", 400705, 9987932434, "nilima.com");
+            dataTable.Rows.Add("Naina", "wadal", "mumbai", "HYD", "Andra", 400701, 9987932434, "naina@gmail.com");
+            dataTable.Rows.Add("ritesh", "deshmukh", "thane", "Pune", "up", 400703, 9987932434, "ritesh@gmail.com");
+            dataTable.Rows.Add("Shivam", "borole", "dombivli", "Akot", "mp", 400710, 9987932434, "shivam@gmail.com");
+            dataTable.Rows.Add("rahul", "sable", "hgt", "Mumbai", "goa", 400703, 9987932434, "rahul@gmail.com");
+            dataTable.Rows.Add("Aniket", "sable", " mum", "Amravti", "vishrbh", 400701, 9987932434, "aniket@gmail.com");
+            dataTable.Rows.Add("Snehal", "parde", "vashi", "Higanghat", "maharashtra", 400701, 9987932434, "snehal@gmail.com");
             // displayAddressBook();
             return dataTable;
         }
@@ -81,13 +81,49 @@ namespace AddressBookLinQ
             if (recordData != null)
             {
                 recordData.Delete();
-                input.FirstName = Console.ReadLine();
-                DisplayAddressBook();
                 Console.WriteLine("Delete contact successfully");
                 DisplayAddressBook();
 
             }
             Console.WriteLine("Contact not present");
+        }
+
+        //Ability to Retrieve Person belonging to a State from the Address Book
+        public void RetrieveContactByState(Contacts contact)
+        {
+            var records = from dataTable in dataTable.AsEnumerable().Where(dataTable => dataTable.Field<string>("State") == contact.State) select dataTable;
+            foreach (var record in records.AsEnumerable())
+            {
+                Console.WriteLine("\nFirstName:-" + record.Field<string>("FirstName"));
+                Console.WriteLine("LastName:-" + record.Field<string>("LastName"));
+                Console.WriteLine("Address:-" + record.Field<string>("Address"));
+                Console.WriteLine("City:-" + record.Field<string>("City"));
+                Console.WriteLine("State:-" + record.Field<string>("State"));
+                Console.WriteLine("ZipCode:-" + record.Field<int>("ZipCode"));
+                Console.WriteLine("PhoneNumber:-" + record.Field<long>("PhoneNumber"));
+                Console.WriteLine("Email:-" + record.Field<string>("Email"));
+                DisplayAddressBook();
+
+            }
+        }
+
+        //Ability to Retrieve Person belonging to a State from the Address Book
+        public void RetrieveContactByCity(Contacts contact)
+        {
+            var records = from dataTable in dataTable.AsEnumerable().Where(dataTable => dataTable.Field<string>("City") == contact.City) select dataTable;
+            foreach (var record in records.AsEnumerable())
+            {
+                Console.WriteLine("\nFirstName:-" + record.Field<string>("FirstName"));
+                Console.WriteLine("LastName:-" + record.Field<string>("LastName"));
+                Console.WriteLine("Address:-" + record.Field<string>("Address"));
+                Console.WriteLine("City:-" + record.Field<string>("City"));
+                Console.WriteLine("State:-" + record.Field<string>("State"));
+                Console.WriteLine("ZipCode:-" + record.Field<int>("ZipCode"));
+                Console.WriteLine("PhoneNumber:-" + record.Field<long>("PhoneNumber"));
+                Console.WriteLine("Email:-" + record.Field<string>("Email"));
+                DisplayAddressBook();
+
+            }
         }
     }
 
